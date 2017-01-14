@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vue Guide - Introduction</title>
+    </head>
+    <body>
+        <div id="app">{{ message }}</div>
+        <div id="app-2">
+            <span v-bind:title="message">Hover me to see a dynamically bound title</span>
+        </div>
+        <div id="app-3">
+            <span v-if="seen">Now you see me</span>
+        </div>
+        <div id="app-4">
+            <ol>
+                <li v-for="todo in todos">{{ todo.text }}</li>
+            </ol>
+        </div>
+        <div id="app-5">
+            <p>{{ message }}</p>
+            <button v-on:click="reverseMessage">Reverse</button>
+        </div>
+        <div id="app-6">
+            <p>{{ message }}</p>
+            <input v-model="message" />
+        </div>
+        <div id="app-7">
+            <ol>
+                <todo-item v-for="item in list" v-bind:todo="item" />
+            </ol>
+        </div>
+        <script src="https://unpkg.com/vue/dist/vue.js"></script>
+        <script src="./app.js"></script>
+    </body>
+</html>
