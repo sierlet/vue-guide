@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vue Guide - Computed Properties and Watchers</title>
+    </head>
+    <body>
+        <div id="app">
+            <p>Normal message: {{ msg }}</p>
+            <p>Reversed message: {{ reversedMsg }}</p>
+            <p>Now computed: {{ nowComputed }}</p>
+            <p>Now method: {{ nowMethod() }}</p>
+            <p>First name = "{{ firstName }}", last name = "{{ lastName }}", full name = "{{ fullName }}"</p>
+            <p>
+                Ask me a yes or no question: <input v-model="question" />
+                <br />
+                {{ answer }}
+            </p>
+        </div>
+        <script src="https://unpkg.com/vue@2.1.8/dist/vue.js"></script>
+        <script src="https://unpkg.com/axios@0.12.0/dist/axios.min.js"></script>
+        <script src="https://unpkg.com/lodash@4.13.1/lodash.min.js"></script>
+        <script src="./app.js"></script>
+    </body>
+</html>
