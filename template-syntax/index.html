@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vue Guide - Template Syntax</title>
+    </head>
+    <body>
+        <div id="app">
+            <p>Message: {{ msg }}</p>
+            <p v-once>Message: {{ msg }}</p>
+            <p v-html="rawHtml"></p>
+            <p v-bind:id="dynamicId">Has dynamic id</p>
+            <button v-bind:disabled="dynamicCondition">button</button>
+            <p>{{ number + 1 }}</p>
+            <p>{{ dynamicCondition ? 'YES' : 'NO' }}</p>
+            <p>{{ msg.split('').reverse().join('') }}</p>
+            <p v-bind:id="'static-part-' + number">Has expression in id attribute</p>
+            <p v-if="dynamicCondition">Visible based on dynamicCondition</p>
+            <a v-bind:href="url" v-on:click.prevent="consoleLog">link</a>
+            <p v-bind:title="msg | toLower">{{ msg | toUpper | repeat(1) }}</p>
+            <a :href="url" @click.prevent="consoleLog">link with shorthands</a>
+        </div>
+        <script src="https://unpkg.com/vue/dist/vue.js"></script>
+        <script src="./app.js"></script>
+    </body>
+</html>
