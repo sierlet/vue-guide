@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vue Guide - Class and Style Bindings</title>
+    </head>
+    <body>
+        <div id="app">
+            <div v-bind:class="{active: isActive}"></div>
+            <div class="static" v-bind:class="{active: isActive, 'has-error': hasError}"></div>
+            <div v-bind:class="classObject"></div>
+            <div v-bind:class="classObjectComputed"></div>
+            <div v-bind:class="[activeClass, errorClass]"></div>
+            <div v-bind:class="[isActive ? activeClass : '', errorClass]"></div>
+            <div v-bind:class="[{active: isActive}, errorClass]"></div>
+            <custom-component class="outside-static" v-bind:class="{'outside-active': isActive}"></custom-component>
+            <div v-bind:style="{color: activeColor, fontSize: fontSize + 'px'}"></div>
+            <div v-bind:style="styleObject"></div>
+            <div v-bind:style="[baseStyles, overridingStyles]"></div>
+        </div>
+        <script src="https://unpkg.com/vue/dist/vue.js"></script>
+        <script src="./app.js"></script>
+    </body>
+</html>
