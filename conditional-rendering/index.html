@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vue Guide - Conditional Rendering</title>
+    </head>
+    <body>
+        <div id="app">
+            <h1 v-if="ok">If</h1>
+            <h1 v-else-if="Math.random() > 0.5">Else if</h1>
+            <h1 v-else>Else</h1>
+            <template v-if="ok">
+                <h1>True</h1>
+                <p>with content</p>
+            </template>
+            <template v-else>
+                <h1>False</h1>
+                <p>and some more</p>
+            </template>
+            <template v-if="loginType === 'username'">
+                <label>Username</label>
+                <input placeholder="Enter your username">
+            </template>
+            <template v-else>
+                <label>Email</label>
+                <input placeholder="Enter your email address">
+            </template>
+            <template v-if="loginType === 'username'">
+                <label>Username</label>
+                <input placeholder="Enter your username" key="username-input">
+            </template>
+            <template v-else>
+                <label>Email</label>
+                <input placeholder="Enter your email address" key="email-input">
+            </template>
+            <button @click="toggleType">Toggle login type</button>
+            <h1 v-show="ok">Show</h1>
+        </div>
+        <script src="https://unpkg.com/vue/dist/vue.js"></script>
+        <script src="./app.js"></script>
+    </body>
+</html>
