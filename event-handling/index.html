@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vue Guide - Event Handling</title>
+    </head>
+    <body>
+        <div id="app">
+            <div>
+                <button @click="counter += 1">Add 1</button>
+                <p>The button above has been clicked {{ counter }} times.</p>
+            </div>
+            <button @click="greet">Greet</button>
+            <div>
+                <button @click="say('hi')">Say hi</button>
+                <button @click="say('what')">Say what</button>
+            </div>
+            <button @click="warn('Form cannot be submitted yet.', $event)">Submit</button>
+            <div>
+                <span @click="isNotCalled">
+                    <a @click.stop="log">stop</a>
+                </span>
+                <form @submit.prevent="log">
+                    <button>Submit</button>
+                </form>
+                <span @click="isNotCalled">
+                    <a href="/" @click.stop.prevent="log">stop</a>
+                </span>
+                <form @submit.prevent>
+                    <button>Submit</button>
+                </form>
+                <span @click.capture="log('first')">
+                    <span @click="log('second')">Capture</span>
+                </span>
+                <div @click.self="log('Clicked self')">
+                    Click somewhere on this text, except <u>here</u>.
+                </div>
+                <button @click.once="log('Only works once')">Works once</button>
+            </div>
+            <div>
+                <input @keyup.13="log('Pressed key 13')" placeholder="keyup.13">
+                <input @keyup.enter="log('Pressed enter')" placeholder="keyup.enter">
+                <input @keyup.tab="log('tab')"
+                       @keyup.delete="log('delete')"
+                       @keyup.esc="log('esc')"
+                       @keyup.space="log('space')"
+                       @keyup.up="log('up')"
+                       @keyup.down="log('down')"
+                       @keyup.left="log('left')"
+                       @keyup.right="log('right')"
+                       placeholder="keyup.<all other aliases>"
+                >
+                <input @keyup.f1="log('f1 (custom)')" placeholder="keyup.f1 (custom)">
+            </div>
+            <div>
+                <input @keyup.alt.67="log('Alt + C')" placeholder="keyup.alt.67">
+                <button @click.shift="log('Shift Clicked')">Shift + Click</button>
+            </div>
+        </div>
+        <script src="https://unpkg.com/vue/dist/vue.js"></script>
+        <script src="./app.js"></script>
+    </body>
+</html>
