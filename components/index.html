@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vue Guide - Form Input Bindings</title>
+    </head>
+    <body>
+        <div id="app">
+            <global-component></global-component>
+            <local-component></local-component>
+            <table>
+                <tr is="custom-tr"></tr>
+            </table>
+            <div>
+                <simple-counter-cheat></simple-counter-cheat>
+                <simple-counter-cheat></simple-counter-cheat>
+                <simple-counter-cheat></simple-counter-cheat>
+            </div>
+            <div>
+                <simple-counter></simple-counter>
+                <simple-counter></simple-counter>
+                <simple-counter></simple-counter>
+            </div>
+            <div>
+                <child message="hello!"></child>
+            </div>
+            <div>
+                <input v-model="parentMsg">
+                <br>
+                <child :message="parentMsg"></child>
+            </div>
+            <div>
+                <child message="Literal vs Dynamic" literal="1" :dynamic="1"></child>
+            </div>
+            <div>
+                <simple-counter :initial-counter="5"></simple-counter>
+            </div>
+            <div>
+                <child message=" This Will Be Normalized     "></child>
+            </div>
+            <div>
+                <p>{{ total }}</p>
+                <simple-counter @increment="incrementTotal"></simple-counter>
+                <simple-counter @increment="incrementTotal"></simple-counter>
+            </div>
+            <div>
+                <child message="Click for native event" @click.native="log('Native click event on root element of custom component')"></child>
+            </div>
+            <div>
+                <currency-input></currency-input>
+            </div>
+            <div>
+                <bus-counter></bus-counter>
+            </div>
+            <div>
+                <child message="Everything in the parent template is compiled in the parent scope">
+                    {{ parentMsg }}
+                </child>
+            </div>
+            <div>
+                <h1>I'm the parent title</h1>
+                <child-with-slot>
+                    <span slot="header">Subtile from parent</span>
+                    <p>This is some original content</p>
+                    <p>This is some more original content</p>
+                    <template scope="props" slot="scoped">
+                        <p>hello from parent</p>
+                        <p>{{ props.text }}</p>
+                    </template>
+                    <span slot="footer">Notice from parent</span>
+                </child-with-slot>
+            </div>
+            <div>
+                <component :is="currentView"></component>
+                <keep-alive>
+                    <component :is="currentView"></component>
+                </keep-alive>
+            </div>
+            <div>
+                <child message="captured in ref" ref="child"></child>
+            </div>
+            <div>
+                <async-component></async-component>
+            </div>
+            <inline-component inline-template>
+                <div>
+                    <p>These are compiled as the component's own template</p>
+                    <p>Not parent's transclusion content.</p>
+                </div>
+            </inline-component>
+            <div>
+                <x-template-component></x-template-component>
+            </div>
+            <cheap-static-component></cheap-static-component>
+        </div>
+        <script type="text/x-template" id="x-template-ref">
+            <p>Hello from X-Template</p>
+        </script>
+        <script src="https://unpkg.com/vue/dist/vue.js"></script>
+        <script src="./app.js"></script>
+    </body>
+</html>
